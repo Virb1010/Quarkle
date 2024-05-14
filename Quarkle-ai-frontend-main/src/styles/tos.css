@@ -1,0 +1,42 @@
+/* add styles for h1 h2 p li ul tags using tailwindcss*/
+
+h1 {
+  @apply my-10 text-center text-4xl font-bold text-gray-800;
+}
+
+h2 {
+  @apply mt-4 text-center text-xl font-bold text-gray-800;
+}
+
+h3 {
+  @apply mt-2 text-center text-lg font-bold text-gray-800;
+}
+
+h4 {
+  @apply mt-2 text-left text-base font-bold text-gray-800;
+}
+
+p {
+  @apply text-left text-lg text-gray-800;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ol li {
+  @apply ml-5 mt-2 text-left text-lg font-bold text-gray-800;
+}
+
+ul {
+  list-style-type: lower-alpha;
+}
+
+ul li {
+  @apply ml-16 mt-0 text-left text-lg font-normal text-gray-800;
+}
+
+ul p,
+ol p {
+  @apply ml-5; /* Adjust the margin values as needed */
+}

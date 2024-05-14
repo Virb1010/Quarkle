@@ -1,0 +1,9 @@
+venv/
+bin/
+.vscode/
+.git/
+__pycache__/
+notebooks/
+
+.gitignore
+*.env

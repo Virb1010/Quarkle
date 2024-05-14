@@ -1,0 +1,323 @@
+# swagger.yml
+
+openapi: 3.0.0
+info:
+  title: "Quarkle REST API"
+  description: "Quarkle's API to modify data"
+  version: "1.0.1"
+
+servers:
+  - url: "/books_api"
+
+components:
+  schemas:
+    CreateBook:
+      type: "object"
+      required:
+        - title
+      properties:
+        title:
+          type: "string"
+    Books:
+      type: "object"
+      required:
+        - book_id
+      properties:
+        book_id:
+          type: "integer"
+        user_id:
+          type: "integer"
+        title:
+          type: "string"
+    Chapter:
+      type: "object"
+      properties:
+        chapter_id:
+          type: "integer"
+        title:
+          type: "string"
+        content:
+          type: "string"
+  parameters:
+    user_id:
+      name: "user_id"
+      description: "ID of the user to get"
+      in: path
+      required: True
+      schema:
+        type: "integer"
+    book_id:
+      name: "book_id"
+      description: "ID of the book to get"
+      in: path
+      required: True
+      schema:
+        type: "integer"
+    email:
+      name: "email"
+      description: "email of the user to get"
+      in: path
+      required: True
+      schema:
+        type: "string"
+    chapter_id:
+      name: "chapter_id"
+      description: "ID of the chapter"
+      in: path
+      required: True
+      schema:
+        type: "integer"
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      x-bearerInfoFunc: auth.validate_auth_token
+paths:
+  /books:
+    post:
+      operationId: "books.create"
+      security:
+        - jwt: []
+      tags:
+        - Books
+      summary: "Create a book"
+      requestBody:
+        description: "Create a book"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "book"
+              $ref: "#/components/schemas/CreateBook"
+      responses:
+        "201":
+          description: "Successfully created book"
+  /books/{book_id}:
+    put:
+      tags:
+        - Books
+      operationId: "books.update"
+      security:
+        - jwt: []
+      summary: "Update a book"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "200":
+          description: "Successfully updated book"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "book"
+              $ref: "#/components/schemas/CreateBook"
+    delete:
+      tags:
+        - Books
+      operationId: "books.delete"
+      security:
+        - jwt: []
+      summary: "Delete a book"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "204":
+          description: "Successfully deleted book"
+  /books/{book_id}/chapters:
+    post:
+      operationId: "chapters.create"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Create a chapter for the book id given"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      requestBody:
+        description: "Chapter to be created"
+        required: True
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Chapter"
+      responses:
+        "201":
+          description: "Successfully created chapter"
+    get:
+      operationId: "chapters.get_all"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Fetch all chapters for a book"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "200":
+          description: "Successfully fetched chapters"
+  /chapters/{chapter_id}:
+    put:
+      operationId: "chapters.update"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Update the contents of a chapter"
+      parameters:
+        - $ref: "#/components/parameters/chapter_id"
+      requestBody:
+        description: "Chapter to be updated"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "chapter"
+              $ref: "#/components/schemas/Chapter"
+      responses:
+        "200":
+          description: "Successfully updated chapter"
+    delete:
+      operationId: "chapters.delete"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Delete a chapter using the chapter_id"
+      parameters:
+        - $ref: "#/components/parameters/chapter_id"
+      responses:
+        "200":
+          description: "Successfully deleted chapter"
+    patch:
+      operationId: "chapters.update_title"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Update the title of a chapter"
+      parameters:
+        - $ref: "#/components/parameters/chapter_id"
+      requestBody:
+        description: "Chapter title to be updated"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "chapter"
+              type: "object"
+              properties:
+                title:
+                  type: "string"
+      responses:
+        "200":
+          description: "Successfully updated chapter title"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Chapter"
+        "404":
+          description: "Chapter not found"
+  /chapters/update_all:
+    put:
+      operationId: "chapters.update_all"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Update all chapters"
+      requestBody:
+        description: "Array of chapters to be updated"
+        required: True
+        content:
+          application/json:
+            schema:
+              type: "array"
+              x-body-name: "chapters"
+              items:
+                type: "object"
+                properties:
+                  chapter_id:
+                    type: "integer"
+                  content:
+                    type: "string"
+                  title:
+                    type: "string"
+      responses:
+        "200":
+          description: "Successfully updated all chapters"
+  /chapters/upload_documents:
+    post:
+      operationId: "chapters.upload_documents"
+      security:
+        - jwt: []
+      tags:
+        - Chapters
+      summary: "Upload a pdf to a chapter"
+      requestBody:
+        description: "PDF file and book ID to be uploaded"
+        required: True
+        content:
+          multipart/form-data:
+            schema:
+              type: "object"
+              x-body-name: "data"
+              properties:
+                file:
+                  type: "string"
+                  format: "binary"
+                bookId:
+                  type: "integer"
+      responses:
+        "201":
+          description: "Successfully uploaded pdf"
+  /books/{book_id}/category:
+    get:
+      operationId: "books.read_category"
+      security:
+        - jwt: []
+      tags:
+        - Books
+      summary: "Read the category of a book"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "200":
+          description: "Successfully read book category"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        "404":
+          description: "Book not found"
+    patch:
+      operationId: "books.update_category"
+      security:
+        - jwt: []
+      tags:
+        - Books
+      summary: "Update the category of a book"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      requestBody:
+        description: "New category to be updated"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "new_category"
+              type: "object"
+              properties:
+                new_category:
+                  type: "string"
+      responses:
+        "200":
+          description: "Successfully updated book category"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        "403":
+          description: "User not authorized"
+        "404":
+          description: "Book not found"

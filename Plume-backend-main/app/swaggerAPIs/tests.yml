@@ -1,0 +1,31 @@
+# swagger.yml
+
+openapi: 3.0.0
+info:
+  title: "Quarkle REST API"
+  description: "Quarkle's API to modify data"
+  version: "1.0.1"
+
+servers:
+  - url: "/tests_api"
+
+paths:
+  /simple_test:
+    get:
+      operationId: "tests.simple_test"
+      tags:
+        - Tests
+      summary: "A simple API test"
+      responses:
+        200:
+          description: "Successful operation"
+
+  /db_test:
+    get:
+      operationId: "tests.db_user_test"
+      tags:
+        - Tests
+      summary: "A simple DB test"
+      responses:
+        200:
+          description: "Successful operation"

@@ -1,0 +1,107 @@
+# swagger.yml
+
+openapi: 3.0.0
+info:
+  title: "Quarkle REST API"
+  description: "Quarkle's API to modify data"
+  version: "1.0.1"
+
+servers:
+  - url: "/users_api"
+
+components:
+  schemas:
+    Users:
+      type: "object"
+      required:
+        - user_id
+      properties:
+        user_id:
+          type: "integer"
+        email:
+          type: "string"
+        username:
+          type: "string"
+    CreateUsers:
+      type: "object"
+      required:
+        - email
+      properties:
+        email:
+          type: "string"
+  parameters:
+    user_id:
+      name: "user_id"
+      description: "ID of the user"
+      in: path
+      required: True
+      schema:
+        type: "integer"
+    email:
+      name: "email"
+      description: "email of the user"
+      in: path
+      required: True
+      schema:
+        type: "string"
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      x-bearerInfoFunc: auth.validate_auth_token
+paths:
+  /users:
+    post:
+      operationId: "users.create"
+      security:
+        - jwt: []
+      tags:
+        - Users
+      summary: "Create a user"
+      requestBody:
+        description: "User to create"
+        required: True
+        content:
+          application/json:
+            schema:
+              x-body-name: "data"
+              $ref: "#/components/schemas/CreateUsers"
+      responses:
+        "201":
+          description: "Successfully created user"
+
+  /users/fetch_one:
+    get:
+      operationId: "users.read_one"
+      security:
+        - jwt: []
+      tags:
+        - Users
+      summary: "Read one user"
+      responses:
+        "200":
+          description: "Successfully read user"
+
+  /users/accepted_terms:
+    get:
+      operationId: "users.read_user_accepted_terms"
+      security:
+        - jwt: []
+      tags:
+        - Users
+      summary: "Read user accepted terms"
+      responses:
+        "200":
+          description: "Successfully read user"
+
+    put:
+      operationId: "users.save_terms_accepted"
+      security:
+        - jwt: []
+      tags:
+        - Users
+      summary: "User 18+ and accepted terms"
+      responses:
+        "200":
+          description: "Successfully updated user"

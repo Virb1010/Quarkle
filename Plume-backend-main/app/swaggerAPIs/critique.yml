@@ -1,0 +1,224 @@
+# swagger.yml
+
+openapi: 3.0.0
+info:
+  title: "Quarkle REST API"
+  description: "Quarkle's API to modify data"
+  version: "1.0.1"
+
+servers:
+  - url: "/critique_api"
+
+components:
+  schemas:
+    BookAnalysis:
+      type: "object"
+      required:
+        - book_id
+      properties:
+        book_id:
+          type: "integer"
+    QuarkleChat:
+      type: "object"
+      required:
+        - message
+        - is_user
+      properties:
+        data:
+          type: "string"
+  parameters:
+    book_id:
+      name: "book_id"
+      description: "ID of the book being analyzed"
+      in: path
+      required: True
+      schema:
+        type: "integer"
+    chapter_id:
+      name: "chapter_id"
+      description: "ID of the chapter being analyzed"
+      in: path
+      required: True
+      schema:
+        type: "integer"
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      x-bearerInfoFunc: auth.validate_auth_token
+paths:
+  /analyze/{chapter_id}:
+    get:
+      operationId: "critique.analyze"
+      security:
+        - jwt: []
+      tags:
+        - Critique
+      summary: "Analyze a piece of text"
+      parameters:
+        - $ref: "#/components/parameters/chapter_id"
+      responses:
+        "200":
+          description: "Successfully analyzed post"
+  /chats/{book_id}:
+    get:
+      operationId: "chats.get_quarkle_chats"
+      security:
+        - jwt: []
+      tags:
+        - Chats
+      summary: "Get quarkle chats"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "200":
+          description: "Successfully retrieved quarkle chats"
+    delete:
+      operationId: "chats.delete_quarkle_chats"
+      security:
+        - jwt: []
+      tags:
+        - Chats
+      summary: "Delete quarkle chats"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "200":
+          description: "Successfully deleted quarkle chats"
+    post:
+      operationId: "chats.start_new_conversation"
+      security:
+        - jwt: []
+      tags:
+        - Chats
+      summary: "Start a new conversation"
+      parameters:
+        - $ref: "#/components/parameters/book_id"
+      responses:
+        "200":
+          description: "Successfully started a new conversation"
+  /chats/activate/{conversation_id}:
+    put:
+      operationId: "chats.activate_conversation"
+      security:
+        - jwt: []
+      tags:
+        - Chats
+      summary: "Activate a conversation"
+      parameters:
+        - name: "conversation_id"
+          description: "ID of the conversation to be activated"
+          in: path
+          required: True
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully activated conversation"
+        "404":
+          description: "Conversation not found"
+  /comments:
+    get:
+      operationId: "comments.get_multiple_comments"
+      security:
+        - jwt: []
+      tags:
+        - Comments
+      summary: "Get multiple comments by their IDs"
+      parameters:
+        - name: "ids"
+          in: "query"
+          description: "Comma-separated list of comment IDs"
+          required: true
+          schema:
+            type: "string" # Using string type here to capture the comma-separated values
+          style: "form"
+          explode: false
+      responses:
+        "200":
+          description: "Successfully retrieved comments"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Comments not found"
+  /comments/resolve/{comment_id}:
+    put:
+      operationId: "comments.resolve"
+      security:
+        - jwt: []
+      tags:
+        - Comments
+      summary: "Resolve a comment"
+      parameters:
+        - name: "comment_id"
+          description: "ID of the comment to be resolved"
+          in: path
+          required: True
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully resolved comment"
+        "404":
+          description: "Comment not found"
+  /comments/thumbsup/{comment_id}:
+    patch:
+      operationId: "comments.thumbs_up"
+      security:
+        - jwt: []
+      tags:
+        - Comments
+      summary: "Upvote a comment"
+      parameters:
+        - name: "comment_id"
+          description: "ID of the comment to be upvoted"
+          in: path
+          required: True
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully upvoted comment"
+        "404":
+          description: "Comment not found"
+  /comments/activate/{comment_id}:
+    put:
+      operationId: "comments.activate"
+      security:
+        - jwt: []
+      tags:
+        - Comments
+      summary: "Activate a comment"
+      parameters:
+        - name: "comment_id"
+          description: "ID of the comment to be activated"
+          in: path
+          required: True
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully activated comment"
+        "404":
+          description: "Comment not found"
+  /comments/thumbsdown/{comment_id}:
+    patch:
+      operationId: "comments.thumbs_down"
+      security:
+        - jwt: []
+      tags:
+        - Comments
+      summary: "Downvote a comment"
+      parameters:
+        - name: "comment_id"
+          description: "ID of the comment to be downvoted"
+          in: path
+          required: True
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "Successfully downvoted comment"
+        "404":
+          description: "Comment not found"

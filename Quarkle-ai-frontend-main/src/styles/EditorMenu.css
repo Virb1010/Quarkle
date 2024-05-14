@@ -1,0 +1,121 @@
+.bubble-menu {
+  display: flex;
+  background: radial-gradient(ellipse at center, #14142d, #20203d);
+  border: #323354 1px solid;
+  padding: 0.4rem;
+  border-radius: 15px;
+  width: 150%;
+  justify-content: space-around;
+  align-items: center;
+}
+.bubble-menu button {
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0 0.4rem;
+  opacity: 0.6;
+}
+
+.bubble-menu button:hover,
+.bubble-menu button.is-active {
+  opacity: 1;
+}
+
+.floating-menu {
+  display: flex;
+  background-color: #14142d;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: #323354 1px solid;
+  margin-top: 65px;
+}
+
+.floating-menu.light {
+  display: flex;
+  background-color: #fff;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: #323354 1px solid;
+  margin-top: 65px;
+}
+
+.floating-menu button {
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0 0.2rem;
+  color: white;
+}
+
+.floating-menu.light button {
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0 0.2rem;
+  color: black;
+}
+
+.floating-menu button:hover,
+.floating-menu button.is-active {
+  background-color: #20203d;
+}
+
+.floating-menu.light button:hover,
+.floating-menu.light button.is-active {
+  background-color: #adb5bd;
+  border-radius: 0.3rem;
+}
+
+.bubble-menu button img {
+  width: 20px;
+  height: 20px;
+}
+
+.floating-menu button img {
+  width: 20px;
+  height: 20px;
+}
+
+.Color-Picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 30px;
+  height: 35px;
+  border: none;
+}
+
+.Color-Picker:hover {
+  cursor: pointer;
+}
+
+.Color-Picker::-webkit-color-swatch {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.Color-Picker::-moz-color-swatch {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror .is-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #a9a9a9;
+  pointer-events: none;
+  height: 0;
+}

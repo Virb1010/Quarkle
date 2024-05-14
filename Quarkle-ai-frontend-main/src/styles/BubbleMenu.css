@@ -1,0 +1,62 @@
+.AI-Tools{
+    width: 35px;
+    height: 35px;
+}
+
+.AI-Tools-Container{
+    cursor: pointer;
+    opacity: 0.8;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    font-size: 10px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.AI-Tools-Container:hover{
+    opacity: 1;
+}
+
+.bottom-menu{
+    display: flex;
+    flex-direction: row;
+    border: #C6C5ED 1px solid;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 15px;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
+    background-color: #14142D;
+    left: 50%;
+    left: 50%; /* Center horizontally */
+    bottom: 30px; /* 30px from the bottom */
+    transform: translateX(-50%);
+}
+
+.bottom-menu button img {
+    width: 20px;
+    height: 20px;
+}
+
+.bottom-menu button {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0 0.4rem;
+    opacity: 0.6;
+  }
+  
+.bottom-menu button:hover, .bottom-menu button.is-active {
+opacity: 1;
+}
+
+.Highlight-Instructions{
+    color: white;
+    font-size: 12px;
+}

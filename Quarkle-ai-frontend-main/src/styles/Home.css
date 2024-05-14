@@ -1,0 +1,411 @@
+.Home-Page {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  justify-items: center;
+  font-family: var(--font-lato);
+}
+
+.DemoVideo {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  border: #070724 3px solid;
+  margin: 20px;
+  margin-bottom: 120px;
+}
+
+.Home-Title-Subtext {
+  color: #353654;
+  font-family:
+    var(--font-lato),
+    var(--font-montserrat),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    serif;
+  font-weight: 500;
+  font-size: 27px;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.dark .Home-Title-Subtext {
+  color: #c6c5ed;
+}
+
+.Home-Logo-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  margin-top: 3%;
+}
+
+.Home-Text-Button-Container {
+  margin-top: 40px;
+  padding: 30px;
+  width: 58.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  overflow: auto;
+  border-radius: 10px;
+  opacity: 1;
+  gap: 20px;
+}
+
+.Home-button {
+  width: 160px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 30px;
+  background-color: #fffffc;
+  border: none;
+  cursor: pointer;
+  color: #14142d;
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 15px #c6c5ed;
+}
+
+.Home-button:hover {
+  box-shadow: 0px 0px 45px #c6c5ed !important;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.Go-Button {
+  height: 30px;
+  width: 30px;
+  margin-left: 20px;
+}
+
+.Home-Page-One {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  position: relative;
+}
+
+.Home-Page-Two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.Page-Two-Header-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Secondary-Header {
+  @apply mb-4 text-center font-lato text-4xl font-bold leading-snug text-[#070722] dark:text-[#fffffc] sm:text-left sm:text-5xl sm:leading-tight;
+}
+
+.Secondary-Header-Subtext {
+  @apply font-lato text-2xl text-[#353654] dark:text-[#c6c5ed] sm:text-3xl;
+}
+
+.Page-Two-Tiles-Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.Page-Two-Tile {
+  background-color: #c6c5ed;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px;
+  color: #14142d;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 15px #c6c5ed;
+}
+
+.dark .Page-Two-Tile {
+  background-color: #fffffc;
+  color: #14142d;
+  box-shadow: 0px 0px 15px #14142d;
+}
+
+.Page-Two-Tile-Img {
+  width: 100px;
+  height: 100px;
+}
+
+.Page-Two-Tile-Subtext {
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.Quarkle-Image-Conti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.Quarkle-Img-Mascot {
+  height: 120px;
+  width: 120px;
+}
+
+.Home-Page-Three {
+  @apply flex flex-col gap-16 sm:gap-40;
+}
+
+.Page-Three-Feature {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+}
+
+.Feature-Title {
+  color: #fffffc;
+  font-size: 42px;
+}
+
+.Feature-Subtext {
+  font-size: 30px;
+  color: #c6c5ed;
+  font-weight: 400;
+}
+
+.Feature-Demo-Gif {
+  width: 60%;
+  height: 10%;
+  border: #e3ded1 solid 1px;
+  border-radius: 10px;
+  z-index: 2;
+  box-shadow: 0px 0px 25px #14142d;
+}
+
+.dark .Feature-Demo-Gif {
+  border: #14142d solid 1px;
+  box-shadow: 0px 0px 25px #c6c5ed;
+}
+
+.Feature-Text-Container {
+  @apply mx-2 my-4 sm:mx-10;
+}
+
+.Home-Page-Four {
+  width: 80%;
+  background-color: #323354;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  color: #fffffc;
+  border-radius: 14px;
+  position: relative;
+}
+
+.Show-Off-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.Show-Off-Icon {
+  height: 100px;
+  width: 100px;
+}
+
+#Novel-Icon {
+  width: 120px;
+}
+
+.Show-Off-Title {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.Show-Off-Subtitle {
+  font-size: 22px;
+}
+
+.Home-Page-Five {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f8fafc;
+  flex-direction: column;
+}
+
+.Page-Five-Title {
+  font-size: 50px;
+}
+
+.Page-Five-SubText-SEO {
+  width: 60%;
+  font-size: 22px;
+  text-align: center;
+}
+
+.Enter-Email-Container:hover {
+  box-shadow: 0px 0px 45px #af145f !important;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.Google-Icon {
+  height: 80px;
+  width: 80px;
+}
+
+.Try-Quarkle-Title {
+  font-size: 60px;
+}
+
+.flair-one {
+  position: relative;
+  width: 20%;
+  margin: -10%;
+  margin-left: auto;
+  margin-right: 150px;
+}
+
+.flair-two {
+  position: relative;
+  width: 25%;
+  margin: -10%;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.flair-three {
+  position: absolute;
+  width: 30%;
+  right: -25%;
+  top: -150%;
+}
+
+.flair-four {
+  position: relative;
+  width: 20%;
+  margin-left: 20%;
+  margin-top: -20%;
+  margin-bottom: -10%;
+}
+
+.flair-six {
+  position: relative;
+  width: 35%;
+  margin-left: 10%;
+  margin-top: -10%;
+  margin-bottom: -5%;
+}
+
+@media only screen and (max-width: 768px) {
+  .Home-Page-One,
+  .Home-Page-Two,
+  .Home-Page-Three,
+  .Home-Page-Four,
+  .Home-Page-Five {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Home-Title {
+    text-align: center;
+    font-size: 52px;
+  }
+
+  .Home-Title-Subtext {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .Home-Text-Button-Container {
+    align-items: center;
+  }
+
+  .Page-Two-Tiles-Container,
+  .Page-Three-Feature {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Feature-Text-Container,
+  .Show-Off-Container {
+    text-align: center;
+  }
+
+  .Feature-Demo-Gif {
+    width: 100%;
+    height: auto;
+  }
+
+  .Enter-Email-Container {
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Quarkle-Image-Conti {
+    flex-direction: column;
+  }
+
+  .Home-Page {
+    width: 100%;
+  }
+
+  .DemoVideo {
+    width: 90%;
+  }
+
+  .Home-Text-Button-Container {
+    width: 75%;
+  }
+
+  .Home-Page-Five {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .Page-Five-Title {
+    font-size: 35px;
+  }
+  .Page-Five-SubText-SEO {
+    font-size: 20px;
+  }
+
+  .Enter-Email-Container {
+    width: 90%;
+    height: 80px;
+    padding: 0 20px;
+  }
+}

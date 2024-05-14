@@ -1,0 +1,71 @@
+.Markdown-Content-Display {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Markdown-Content-Display h1,
+.Markdown-Content-Display h2,
+.Markdown-Content-Display h3,
+.Markdown-Content-Display h4,
+.Markdown-Content-Display h5,
+.Markdown-Content-Display h6 {
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.Markdown-Content-Display strong,
+.Markdown-Content-Display b {
+  font-weight: bold;
+}
+
+.Markdown-Content-Display em,
+.Markdown-Content-Display i {
+  font-style: italic;
+}
+
+.Markdown-Content-Display ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.Markdown-Content-Display ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+}
+
+.Markdown-Content-Display li {
+  margin-bottom: 0.5em;
+}
+
+.Markdown-Content-Display blockquote,
+.Markdown-Content-Display code {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: auto; /* adds scrollbars if content overflows */
+  word-wrap: break-word; /* ensures long words do not cause overflow */
+}
+
+.Markdown-Content-Display blockquote {
+  border-left: 3px solid #88797b;
+  padding-left: 10px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-style: italic;
+  color: #88797b;
+}
+
+.Markdown-Content-Display code {
+  font-family: monospace;
+  padding: 4px 4px;
+  border-radius: 3px;
+  white-space: pre-wrap;
+}
+
+.Markdown-Content-Display hr {
+  border: 0;
+  height: 1px;
+  background-color: #88797b; /* Color for the horizontal line */
+  margin-top: 10px; /* Adjust top margin as needed */
+  margin-bottom: 10px; /* Adjust bottom margin as needed */
+}

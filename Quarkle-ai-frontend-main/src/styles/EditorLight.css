@@ -1,0 +1,292 @@
+.Editor.light {
+  color: #000000;
+}
+
+.Left-Panel-Content.light {
+  border: #bebed3 solid 2px;
+  background: radial-gradient(ellipse at center, #ffffff, #fbfaff);
+  color: #14142d;
+}
+
+.dropdown-content.light {
+  background-color: #14142d;
+}
+
+.Save-Icon-And-Text.light {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  color: #14142d;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-top: 0px;
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 5px;
+  width: fit-content;
+  border: 0.5px solid #bebed3;
+}
+
+.Brainstorm-Header-Text.light {
+  color: black;
+}
+
+.Brainstorm-Header-Container.light {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bottom-menu.light {
+  display: flex;
+  flex-direction: row;
+  color: #14142d;
+  border: #bebed3 1px solid;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 15px;
+  align-items: center;
+  z-index: 2;
+  position: fixed;
+  background-color: #ffffff;
+  left: 50%;
+  left: 50%; /* Center horizontally */
+  bottom: 30px; /* 30px from the bottom */
+  transform: translateX(-50%);
+}
+
+.Highlight-Instructions.light {
+  color: #14142d;
+  font-weight: 500;
+}
+
+.bottom-menu.light button {
+  border: none;
+  background: none;
+  color: #14142d;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0 0.4rem;
+  opacity: 0.6;
+  filter: invert(1);
+}
+
+.Control-Panel.light {
+  background-color: #ffffff;
+  color: #14142d;
+  border: #bebed3 2px solid;
+}
+
+.Minimize-Icon.light {
+  background-color: #41412c;
+  filter: invert(1);
+}
+
+.Maximize-Icon.light {
+  background-color: #41412c;
+  filter: invert(1);
+}
+
+.Control-Panel-Icon.light {
+  filter: invert(1);
+}
+
+.Control-Panel-Icon.light:hover {
+  background-color: #111111;
+}
+
+.Control-Panel-Icon.light.selected {
+  background-color: #111111;
+}
+
+.Quarkle-Chat-User-Text.light {
+  color: #14142d;
+}
+
+.Quarkle-Chat-Reply-Text.light {
+  color: #14142d;
+}
+
+.Quarkle-Chat-Reply-Container.light {
+  border: #c6c5ed 2px solid;
+  background-color: #e8eaec;
+}
+
+.Quarkle-Chat-User-Container.light {
+  border: #c6c5ed 2px solid;
+  background-color: #c6c5ed;
+}
+
+.Brainstorm-Title.light {
+  color: #14142d;
+}
+
+.Quarkle-Chat.light {
+  color: #f8fafc;
+  border: #bebed3 solid 2px;
+  background: radial-gradient(ellipse at center, #ffffff, #fbfaff);
+}
+
+.Quarkle-Comments.light {
+  width: 100%;
+  color: #14142d;
+  font-weight: 500;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  height: 80vh;
+}
+
+.ProseMirror .my-comment.light {
+  background-color: #eabfde;
+}
+
+.ProseMirror .my-comment.light.active {
+  background-color: #ecc94b;
+}
+
+.comment-component.light {
+  border: #bebed3 1px solid;
+  background-color: #edebfd;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  transition:
+    background-color 0.1s ease,
+    margin-left 0.3s ease;
+}
+
+.comment-component.light.active {
+  background-color: #c6c5ed;
+  margin-left: 0px;
+}
+
+.resolve-button.light {
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+  padding: 4px;
+  border-radius: 5px;
+  justify-self: right;
+  filter: invert(1);
+}
+
+.resolve-button.light:hover {
+  background-color: #14142d;
+  cursor: pointer;
+}
+
+.Comment-Action-Button.light {
+  background-color: #9a9aea;
+}
+
+.Comment-Action-Button.light:hover {
+  background-color: #3737b5;
+}
+
+.Comment-Action-Button.light:hover .action-icon {
+  fill: #f8fafc;
+  color: #f8fafc;
+}
+
+.Comment-Action-Button .action-icon.light {
+  fill: #000000;
+}
+
+.Comment-Action-Button.light:hover .action-button-text {
+  color: #f8fafc;
+  font-weight: 900;
+}
+
+.Comment-Action-Button .action-button-text .light {
+  color: #000000;
+}
+
+.Quarkle-Comment-Feedback-Confirm.light {
+  border: #bebed3 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #14142d;
+  display: flex;
+  align-items: center;
+}
+
+.Quarkle-Comment-Feedback-Confirm:hover {
+  background-color: #eeeeee;
+}
+
+.Editorial-Report.light {
+  filter: invert(1);
+}
+
+.report-component.light {
+  border: #bebed3 1px solid;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  transition:
+    background-color 0.1s ease,
+    margin-left 0.3s ease;
+}
+
+.report-component.light .Report-Title {
+  color: #111111;
+}
+
+.report-component.light .Report-input-text {
+  color: #111111;
+}
+
+.bubble-menu.light {
+  background: radial-gradient(ellipse at center, #ededf9, #fbfaff);
+  border: #bebed3 1px solid;
+}
+.bubble-menu.light button {
+  border: none;
+  background: none;
+  color: #14142d;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0 0.4rem;
+  opacity: 0.6;
+}
+
+.bubble-menu.light button img {
+  filter: invert(1);
+}
+
+.AI-Tools-Container.light {
+  cursor: pointer;
+  opacity: 0.8;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  color: #14142d;
+  flex-direction: column;
+  font-size: 10px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.AI-Tools.light {
+  filter: invert(1);
+}
+
+* {
+  transition: all 0.3s ease-in-out;
+}

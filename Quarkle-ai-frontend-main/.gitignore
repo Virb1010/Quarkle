@@ -1,0 +1,7 @@
+/node_modules
+/build
+.env
+# ignore all files in the .next folder
+/.next
+.env.local
+**/.DS_Store

@@ -1,0 +1,102 @@
+# swagger.yml
+
+openapi: 3.0.0
+info:
+  title: "Quarkle REST API"
+  description: "Quarkle's API to modify data"
+  version: "1.0.1"
+servers:
+  - url: "/subscriptions_api"
+
+paths:
+  /subscriptions/stripe/webhook:
+    post:
+      summary: Stripe webhook
+      description: This endpoint receives a webhook from Stripe.
+      operationId: "stripe_webhook.listen"
+      responses:
+        "200":
+          description: Webhook received successfully.
+        "400":
+          description: Bad request. Invalid input received.
+        "500":
+          description: Internal server error.
+
+  /subscriptions/fetch_one:
+    get:
+      summary: Get a subscription
+      description: This endpoint gets a subscription for a user with given details.
+      operationId: "subscriptions.get_subscription"
+      security:
+        - jwt: []
+      responses:
+        "200":
+          description: Subscription fetched successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubscriptionResponse"
+        "400":
+          description: Bad request. Invalid input received.
+        "404":
+          description: No Paid Subscription.
+        "500":
+          description: Internal server error.
+
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      x-bearerInfoFunc: auth.validate_auth_token
+  schemas:
+    SubscriptionRequest:
+      type: object
+      required:
+        - subscription_type
+        - user_email
+      properties:
+        subscription_type:
+          type: string
+          description: Type of the subscription.
+        is_active:
+          type: boolean
+          description: Whether the subscription is active.
+        stripe_customer_id:
+          type: string
+          description: Stripe customer identifier.
+        stripe_subscription_id:
+          type: string
+          description: Stripe subscription identifier.
+        stripe_subscription_status:
+          type: string
+          description: Stripe subscription status.
+        stripe_payment_method:
+          type: string
+          description: Stripe payment method identifier.
+        stripe_price_id:
+          type: string
+          description: Stripe price identifier.
+        user_email:
+          type: string
+          description: User email.
+
+    SubscriptionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            user_id:
+              type: integer
+            subscription_type:
+              type: string
+            stripe_customer_id:
+              type: string
+            stripe_subscription_id:
+              type: string

@@ -1,0 +1,89 @@
+.Footer-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.Social-Icons-Grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center; /* Add this line */
+  align-items: center; /* Add this line */
+}
+
+.Footer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: transparent;
+  width: 100%; /* Set the width to 100% */
+  align-items: flex-start;
+}
+
+.footer-left {
+  @apply flex w-full flex-col items-center justify-center gap-2 text-center sm:w-1/3 sm:items-start sm:text-left;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  /* margin-left: 10px; */
+  @apply mx-2 h-10 w-10 sm:my-2 sm:h-12 sm:w-12;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.footer-right {
+  @apply flex flex-col items-center justify-start;
+}
+
+.Footer h2 {
+  font-family: var(--font-lato), "Bebas Neue", "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 27px;
+}
+
+#canny {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.Copyright {
+  margin: 40px;
+}
+
+.contact-us-button {
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: var(--font-montserrat), sans-serif;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.contact-us-button:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .Footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Quarkle-Logo-Text {
+    justify-content: center;
+  }
+
+  .Social-Icons-Grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
